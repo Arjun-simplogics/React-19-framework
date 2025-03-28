@@ -1,0 +1,107 @@
+.custom_table_container {
+	height: 100%;
+	overflow: auto;
+	min-height: 100px;
+	table {
+		width: 100%;
+		overflow: auto;
+		border-collapse: separate;
+		border-spacing: 0;
+		position: relative;
+		z-index: 2;
+		thead {
+			tr {
+				th {
+					position: sticky;
+					top: 0;
+					font-family: "medium";
+					font-weight: normal;
+					box-shadow: 3px 1px 3px 0px var(--tableShadow);
+					padding: 8px 20px;
+					background-color: var(--tableHeadBg);
+					z-index: 10;
+					white-space: nowrap;
+					&.sortable {
+						cursor: pointer;
+					}
+					.sort_icon_container {
+						height: 15px;
+						position: relative;
+						display: inline-block;
+						vertical-align: middle;
+						> svg {
+							height: 15px;
+							width: 15px;
+							position: absolute;
+							top: 0px;
+							left: 4px;
+							&.sort_visible {
+								fill: var(--black);
+								z-index: 1;
+							}
+							&.sort_hidden {
+								fill: var(--tableHeadBg);
+							}
+						}
+						.sort_asc {
+							top: -1px !important;
+						}
+					}
+				}
+			}
+		}
+		tbody {
+			> tr {
+				td {
+					padding: 7px 20px;
+					word-break: break-all;
+					word-break: break-word;
+					white-space: pre-wrap;
+					border-bottom: 1px solid var(--tableBorder);
+					&.column_start_dragging {
+						border-right: 1px solid var(--tableBorder);
+					}
+				}
+				&:not(.parent_row_tr) {
+					&:nth-child(odd) {
+						td {
+							background-color: var(--whiteInsideTheme);
+						}
+					}
+					&:nth-child(even) {
+						td {
+							background-color: var(--tableAlternateRowColor);
+							&.sales_plan_details_col_disabled {
+								background-color: #ebebd0;
+							}
+						}
+					}
+				}		
+			}
+		}
+	}
+	.custom_table_no_data {
+		position: absolute;
+		top: 40px;
+		left: 0;
+		right: 0;
+		bottom: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 2;
+	}
+}
+.column_resizer {
+	width: 3px !important;
+	min-width: 3px !important;
+	max-width: 3px !important;
+	padding: 0 0 0 0 !important;
+	position: relative;
+}
+.column_resizer_body {
+	width: 3px !important;
+	min-width: 3px !important;
+	max-width: 3px !important;
+	padding: 0 0 0 !important;
+}

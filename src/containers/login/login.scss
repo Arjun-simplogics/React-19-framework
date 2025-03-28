@@ -1,0 +1,87 @@
+.auth_container {
+	height: 100%;
+	padding: 50px;
+	background-image: url();
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	@media screen and (max-height: 550px) {
+		padding: 20px 50px;
+	}
+	.auth_card {
+		padding: 60px 0px 20px 0px;
+		background-color: var(--white);
+		box-shadow: 0px 0px 4px 0px var(--boxShadow);
+		border-radius: 2px 2px 8px 8px;
+		position: relative;
+		width: 100%;
+		max-width: 450px;
+		height: 100%;
+		max-height: 500px;
+		display: flex;
+		@media screen and (max-height: 550px) {
+			padding: 20px 0px 20px 0px;
+			align-items: center;
+		}
+		&::before {
+			position: absolute;
+			content: "";
+			top: 0px;
+			background-color: var(--themeColor);
+			height: 4px;
+			left: 0;
+			width: 100%;
+			border-radius: 2px 2px 0px 0px;
+		}
+		.auth_card_content {
+			max-height: 100%;
+			overflow: auto;
+			padding: 0px 30px;
+			width: 100%;
+			.auth_logo {
+				max-height: 48px;
+			}
+			.auth_help_text {
+				font-size: 16px;
+				color: var(--black);
+				text-align: center;
+			}
+			.auth_tools_container {
+				.auth_form_container {
+					position: relative;
+					> input {
+						border: 1px solid var(--loginFormBorder);
+						padding: 0px 10px;
+						min-height: 40px;
+						border-radius: 6px;
+						outline: none;
+						box-shadow: none;
+						width: 100%;
+					}
+					&.password_auth {
+						> input {
+							padding-right: 35px;
+						}
+					}
+					.auth_eye {
+						position: absolute;
+						top: 9px;
+						right: 10px;
+						cursor: pointer;
+						color: var(--black);
+					}
+				}
+			}
+		}
+		.auth_form_label {
+			color: var(--labelColor);
+			padding-left: 3px;
+		}
+		.password_invalid {
+			top: -17px;
+		}
+		.login_invalid {
+			top: 6px;
+		}
+	}
+}
