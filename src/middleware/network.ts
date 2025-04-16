@@ -1,11 +1,9 @@
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import { showDelayInfo, showError, showSuccess } from "../utils/util.fns";
+import { showError, showSuccess } from "../utils/util.fns";
 import { LocalStorageKeys } from "../constants";
 import { Locations } from "../constants/locations";
 import { store } from "../store";
 import { logout } from "../services/user/user.service";
-import { Config } from "../config";
-import { i18Get } from "../plugins/i18";
 
 export const setupInterceptors = () => {
 	axios.interceptors.request.use(

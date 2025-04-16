@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnyAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
