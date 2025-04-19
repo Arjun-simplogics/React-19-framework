@@ -6,8 +6,6 @@ type BaseRouterProps = {
 };
 
 export const BaseRouter = (props: BaseRouterProps) => {
-
-
 	if (window.location.pathname !== Locations.BASE) {
 		return props.children;
 	} else {

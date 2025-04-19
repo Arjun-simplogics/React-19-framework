@@ -17,4 +17,3 @@ export const logout = createAsyncThunk("user/logout", async () => {
 	const response = await axios.get(Config.apiSecureUrl + "/logout", axiosConfig());
 	return response.data;
 });
-

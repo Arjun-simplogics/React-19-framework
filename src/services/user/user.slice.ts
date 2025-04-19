@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { APIStatus } from "../../constants";
-import {
-	login,
-} from "./user.service";
+import { login } from "./user.service";
 
 type LoginResponse = {
 	token: string;
@@ -43,8 +41,6 @@ const userSlice = createSlice({
 	},
 });
 
-export const {
-	clearLogin,
-} = userSlice.actions;
+export const { clearLogin } = userSlice.actions;
 
 export default userSlice.reducer;

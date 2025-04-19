@@ -13,7 +13,6 @@ export const Login: React.FunctionComponent = () => {
 	const [invalid, setInvalid] = useState<InvalidProps>({ email: false, password: false });
 	const [loading, setLoading] = useState<boolean>(false);
 	const [showPassword, setShowPassword] = useState<boolean>(false);
-
 	const onKeyPress = (e: React.KeyboardEvent) => {
 		if (e.key === "Enter") {
 			if (document.activeElement === emailRef.current) {
@@ -41,7 +40,6 @@ export const Login: React.FunctionComponent = () => {
 			setLoading(true);
 		}
 	};
-
 	return (
 		<div className="auth_container" onKeyDown={onKeyPress}>
 			<div className="d-flex align-items-center justify-content-end h-100">

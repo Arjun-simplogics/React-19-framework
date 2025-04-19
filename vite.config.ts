@@ -11,10 +11,10 @@ export default defineConfig(() => {
 			react(),
 			checker({
 				typescript: true,
-				eslint: { lintCommand: "eslint 'src/**/*.{ts, tsx, scss}'" },
+				eslint: { lintCommand: "eslint 'src/**/*.{ts,tsx,scss}'" },
 				overlay: {
-					initialIsOpen: false,
-				}
+					initialIsOpen: true,
+				},
 			}),
 		],
 		server: {
