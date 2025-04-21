@@ -1,5 +1,5 @@
 {
-	"ignorePatterns": ["**/config.ts", "node_modules/*", "public/*", "**/*.scss", "**/*.json", "**/*.ttf", "**/*.woff", "**/*.test.js"],
+	"ignorePatterns": ["**/config.ts", "node_modules/*", "public/*", "**/*.scss", "**/*.json", "**/*.ttf", "**/*.woff", "**/*.test.js","vite.config.ts"],
 	"env": {
 		"browser": true,
 		"es2021": true
