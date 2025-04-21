@@ -6,12 +6,23 @@ export default defineConfig(() => {
 	return {
 		build: {
 			outDir: "build",
+			rollupOptions: {
+				output: {
+					manualChunks(id) {
+						if (id.includes("node_modules")) {
+							if (id.includes("antd")) {
+								return "antd";
+							}
+						}
+					},
+				},
+			},
 		},
 		plugins: [
 			react(),
 			checker({
 				typescript: true,
-				eslint: { lintCommand: "eslint 'src/**/*.{ts,tsx,scss}'" },
+				eslint: { lintCommand: "eslint \"src/**/*.{ts,tsx,scss}\"" },
 				overlay: {
 					initialIsOpen: true,
 				},
