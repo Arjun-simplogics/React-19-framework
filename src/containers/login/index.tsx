@@ -1,6 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import I18 from "../../plugins/i18";
 import "./login.scss";
+import { useAppDispatch, useAppSelector } from "../../modal/hooks";
+import { APIStatus, LocalStorageKeys } from "../../constants";
+import { useNavigate } from "react-router-dom";
+import { Locations } from "../../constants/locations";
+import { useAppNavigate } from "../../plugins/app-navigate";
+import { clearLogin } from "../../services/user/user.slice";
+import { login } from "../../services/user/user.service";
 
 type InvalidProps = {
 	email: boolean;
@@ -8,11 +15,31 @@ type InvalidProps = {
 };
 
 export const Login: React.FunctionComponent = () => {
+	const navigate = useNavigate();
 	const emailRef = useRef<HTMLInputElement>(null);
 	const passwordRef = useRef<HTMLInputElement>(null);
 	const [invalid, setInvalid] = useState<InvalidProps>({ email: false, password: false });
 	const [loading, setLoading] = useState<boolean>(false);
 	const [showPassword, setShowPassword] = useState<boolean>(false);
+	const dispatch = useAppDispatch();
+	const user = useAppSelector((store) => store.user);
+
+	useEffect(() => {
+		if (user.loginComplete === APIStatus.FULFILLED) {
+			setLoading(false);
+			if (user.user.token) {
+				sessionStorage.setItem(LocalStorageKeys.TOKEN, user.user.token);
+				sessionStorage.setItem(LocalStorageKeys.ROLE, user.user.role);
+				useAppNavigate(navigate, Locations.BASE);
+			}
+			dispatch(clearLogin());
+		}
+		if (user.loginComplete === APIStatus.REJECTED) {
+			setLoading(false);
+			dispatch(clearLogin());
+		}
+	}, [user.loginComplete]);
+
 	const onKeyPress = (e: React.KeyboardEvent) => {
 		if (e.key === "Enter") {
 			if (document.activeElement === emailRef.current) {
@@ -38,6 +65,12 @@ export const Login: React.FunctionComponent = () => {
 	const loginClicked = () => {
 		if (validate()) {
 			setLoading(true);
+			dispatch(
+				login({
+					email: emailRef.current?.value ? emailRef.current?.value.toLowerCase() : "",
+					password: passwordRef.current?.value ?? "",
+				})
+			);
 		}
 	};
 	return (

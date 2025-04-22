@@ -1,42 +1,93 @@
+@font-face {
+	font-family: "Roboto-Black";
+	src: url("./fonts/Roboto-Black.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Roboto-Bold";
+	src: url("./fonts/Roboto-Bold.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Roboto-Light";
+	src: url("./fonts/Roboto-Light.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Roboto-Medium";
+	src: url("./fonts/Roboto-Medium.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 html {
 	body {
-		font-size: 14px;
-		font-family: "regular";
-		.font_family_body {
-			font-family: "regular";
-		}
-		.font_body {
-			font-size: 14px;
-		}
-		.font_11 {
-			font-size: 11px;
+		font-size: 13px;
+		.font_20 {
+			font-size: 20px;
 		}
 		.font_12 {
 			font-size: 12px;
 		}
-		.font_13 {
-			font-size: 13px;
+		.font_11 {
+			font-size: 11px;
 		}
-		.font_16 {
+		.font-16 {
 			font-size: 16px;
 		}
-		.font_20 {
-			font-size: 20px;
+		.font-body {
+			font-size: 13px;
 		}
+		//antd_modal
+		font-family: "NotoSansJP-Regular";
 		.font_weight_bold {
-			font-family: "bold";
+			font-family: "NotoSansJP-Bold";
 		}
-		.font_weight_black {
-			font-family: "black";
+		// Roboto
+		.roboto_font {
+			font-family: "Roboto-Regular";
+			.font_weight_bold {
+				font-family: "Roboto-Bold";
+			}
+			.font_weight_black {
+				font-family: "Roboto-Black";
+			}
+			.font_weight_medium {
+				font-family: "Roboto-Medium";
+			}
+			.font_weight_thin {
+				font-family: "Roboto-Light";
+			}
+			.font_weight_regular {
+				font-family: "Roboto-Regular";
+			}
 		}
-		.font_weight_medium {
-			font-family: "medium";
-		}
-		.font_weight_thin {
-			font-family: "light";
-		}
-		.font_weight_regular {
-			font-family: "regular";
+		.noto_sans_font {
+			font-family: "NotoSansJP-Regular";
+			.font_weight_bold {
+				font-family: "NotoSansJP-Bold";
+			}
+			.font_weight_black {
+				font-family: "NotoSansJP-Black";
+			}
+			.font_weight_medium {
+				font-family: "NotoSansJP-Medium";
+			}
+			.font_weight_thin {
+				font-family: "NotoSansJP-Light";
+			}
+			.font_weight_regular {
+				font-family: "NotoSansJP-Regular";
+			}
 		}
 	}
 }

@@ -74,7 +74,8 @@ const handleResponse = (response: AxiosResponse<any, any>) => {
 		response.data.status &&
 		response.data.messageCode === 1 &&
 		response.data.message &&
-		response.config.method !== "get"
+		response.config.method !== "get" &&
+		!response.config.url?.includes("/signin")
 	) {
 		showSuccess(response.data.message);
 	}
