@@ -4,8 +4,7 @@ import { APIStatus } from "../../constants";
 import { Locations } from "../../constants/locations";
 import { useAppDispatch, useAppSelector } from "../../modal/hooks";
 import I18 from "../../plugins/i18";
-import "./reset-password.scss";
-import { resetPassword, verifyToken } from "../../services/user/user.service";
+import { resetPassword } from "../../services/user/user.service";
 import { clearResetPassword, clearVerifyToken } from "../../services/user/user.slice";
 
 type InvalidProps = {
@@ -30,14 +29,14 @@ export const ResetPassword: React.FunctionComponent = () => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
 
-	useEffect(() => {
-		if (params.token) {
-			setLoading(true);
-			dispatch(verifyToken(params.token));
-		} else {
-			navigate(Locations.LOGIN);
-		}
-	}, [params.token]);
+	// useEffect(() => {
+	// 	if (params.token) {
+	// 		setLoading(true);
+	// 		dispatch(verifyToken(params.token));
+	// 	} else {
+	// 		navigate(Locations.LOGIN);
+	// 	}
+	// }, [params.token]);
 
 	useEffect(() => {
 		if (user.verifyTokenComplete === APIStatus.FULFILLED) {
@@ -119,9 +118,6 @@ export const ResetPassword: React.FunctionComponent = () => {
 			<div className="login_field_card">
 				<div className="w-100 h-100">
 					<div className="login_credentials_container">
-						<div className="logo_container">
-							<img src="./images/logo.png" className="login_logo" />
-						</div>
 						<div className="login_heading_text_data">Reset Password</div>
 						<div className="login_description">Enter a New Password</div>
 						<div className="login_input_container mb-4">
@@ -191,7 +187,6 @@ export const ResetPassword: React.FunctionComponent = () => {
 							</button>
 						</div>
 					</div>
-					<div className="owner_info text-center">PM Tool Powered by Simplogics Solutions</div>
 				</div>
 			</div>
 		</div>

@@ -5,7 +5,6 @@ import { Locations } from "../../constants/locations";
 import { useAppDispatch, useAppSelector } from "../../modal/hooks";
 import I18 from "../../plugins/i18";
 import { forgotPassword } from "../../services/user/user.service";
-import "./forgot-password.scss";
 import { clearForgotPassword } from "../../services/user/user.slice";
 
 type InvalidProps = {
