@@ -39,14 +39,6 @@ export const showDelayInfo = (msg: string): void => {
 	message.info({ content: i18Get(msg, Config.defaultLanguage), duration: 15 });
 };
 
-export const showImportErrorInfo = (msg: string, info: string): void => {
-	message.info({ content: i18Get(msg, Config.defaultLanguage) + info, duration: 15 });
-};
-
-export const showImportSuccess = (msg: string, info: string): void => {
-	message.success({ content: i18Get(msg, Config.defaultLanguage) + info, duration: 15 });
-};
-
 export const axiosConfig = (): AxiosRequestConfig => ({
 	headers: {
 		"Authorization": `Bearer ${sessionStorage.getItem(LocalStorageKeys.TOKEN)}`,
