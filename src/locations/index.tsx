@@ -11,15 +11,6 @@ export const webRouter = createBrowserRouter([
 		errorElement: <ErrorBoundary />,
 	},
 	{
-		// path: Locations.BASE,
-		// element: (
-		// 	<MainContainer />
-		// ),
-		// errorElement: <ErrorBoundary />,
-		// children: [
-		// ],
-	},
-	{
 		path: "*",
 		element: <Navigate to={Locations.BASE} />,
 		errorElement: <ErrorBoundary />,

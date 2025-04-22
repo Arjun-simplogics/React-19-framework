@@ -45,9 +45,6 @@ export const Login: React.FunctionComponent = () => {
 			<div className="d-flex align-items-center justify-content-end h-100">
 				<div className="auth_card">
 					<div className="auth_card_content">
-						<div className="text-center">
-							<img className="auth_logo" src="/images/logo.png" />
-						</div>
 						<div className="auth_help_text pt-2 pb-5">
 							<I18 tkey="LOGIN_WELCOME" />
 						</div>
