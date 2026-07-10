@@ -1,0 +1,6 @@
+{
+    "apiUrl": "https://sample.api.com/api",
+    "env": "dev",
+    "defaultLanguage": "en",
+    "version": "v1.0.0"
+}

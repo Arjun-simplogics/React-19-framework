@@ -3,6 +3,7 @@ import "@ant-design/v5-patch-for-react-19";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { loadConfig } from "./config";
 import reportWebVitals from "./reportWebVitals";
 import "./style.scss";
 import "./assets/color.scss";
@@ -11,7 +12,6 @@ import "./assets/constants.scss";
 import { setupInterceptors } from "./middleware/network";
 import { Router } from "./router";
 import { StyleProvider, legacyLogicalPropertiesTransformer } from "@ant-design/cssinjs";
-import jaJP from "antd/lib/locale/ja_JP";
 import { ConfigProvider } from "antd";
 
 setupInterceptors();
@@ -24,15 +24,24 @@ if (!container) {
 }
 const root = createRoot(container);
 
-root.render(
-	<StyleProvider hashPriority="high" transformers={[legacyLogicalPropertiesTransformer]}>
-		<Provider store={store}>
-			<ConfigProvider locale={jaJP}>
-				<Router />
-			</ConfigProvider>
-		</Provider>
-	</StyleProvider>
-);
+const initializeApp = async () => {
+	try {
+		await loadConfig();
+		
+		root.render(
+			<StyleProvider hashPriority="high" transformers={[legacyLogicalPropertiesTransformer]}>
+				<Provider store={store}>
+					<ConfigProvider>
+						<Router />
+					</ConfigProvider>
+				</Provider>
+			</StyleProvider>
+		);
+	} catch (error) {
+		console.error("Failed to load configuration:", error);
+		root.render(<div>Failed to load configuration. Please try again.</div>);
+	}
+};
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
