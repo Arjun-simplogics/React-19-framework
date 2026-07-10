@@ -3,8 +3,8 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { ErrorBoundary } from "../plugins/error-boundary";
 import { Locations } from "../constants/locations";
 import { Login } from "../containers/login";
-import { ForgotPassword } from "../containers/forgot-password";
-import { ResetPassword } from "../containers/reset-password";
+import { BaseRouter } from "../plugins/base-router";
+import { MainContainer } from "../containers/main-container";
 
 export const webRouter = createBrowserRouter([
 	{
@@ -13,14 +13,14 @@ export const webRouter = createBrowserRouter([
 		errorElement: <ErrorBoundary />,
 	},
 	{
-		path: Locations.FORGOT_PASSWORD,
-		element: <ForgotPassword />,
+		path: Locations.BASE,
+		element: (
+			<BaseRouter>
+				<MainContainer />
+			</BaseRouter>
+		),
 		errorElement: <ErrorBoundary />,
-	},
-	{
-		path: Locations.RESET_PASSWORD,
-		element: <ResetPassword />,
-		errorElement: <ErrorBoundary />,
+		children: [],
 	},
 	{
 		path: "*",
